@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Blog Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .section-blog-articles {
+            max-width: 1200px;
+            margin: 3% auto;
+        }
+
+        .row-wide {
+            padding: 20px;
+        }
+
+        .grid-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-image-wrapper {
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .article-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .article-meta-wrapper {
+            padding: 15px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h3 a:hover {
+            color: #007BFF;
+        }
+
+        .article-excerpt {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .article-meta span {
+            margin-right: 10px;
+        }
+
+        .article-meta-separator {
+            color: #ccc;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .article-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .grid-articles {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1rem;
+            }
+
+            .article-meta {
+                font-size: 0.8rem;
+            }
+
+            .article-excerpt {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Hover Animation */
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item .article-image img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .grid-item:hover .article-image img {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .grid-item .article-meta-wrapper {
+            opacity: 0.9;
+            transition: opacity 0.5s ease;
+        }
+
+        .grid-item:hover .article-meta-wrapper {
+            opacity: 1;
+        }
+
+        /* Scroll Animation */
+        .grid-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .grid-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<style>
+     .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            margin: 0 10px;
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+</style>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Something</a>
+        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<style>
+  .category-sidebar {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #343a40;
+    }
+
+    .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .category-link {
+        text-decoration: none;
+        color: #007bff;
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #dee2e6;
+        transition: color 0.3s ease;
+    }
+
+    .category-link:hover {
+        color: #0056b3;
+    }
+
+    .category-link:last-child {
+        border-bottom: none;
+    }
+
+    .subcategory-list {
+        list-style: none;
+        padding: 0 0 0 15px;
+        margin: 5px 0 10px;
+    }
+
+    .subcategory-link {
+        text-decoration: none;
+        color: #6c757d;
+        display: block;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+
+    .subcategory-link:hover {
+        color: #495057;
+    }
+
+    @media (max-width: 768px) {
+        .category-sidebar {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="blog-page container">
+        <h1 class="text-center my-5">Blog</h1>
+        <div class="row">
+            <div class="col col-12 col-sm-8 col-md-3">
+                <aside class="category-sidebar">
+                    <h2 class="sidebar-title">Categories</h2>
+                    <ul class="category-list">
+                        <li>
+                            <a href="#" class="category-link">Photography Tips</a>
+                            <ul class="subcategory-list">
+                                <li><a href="#" class="subcategory-link">Portrait Photography</a></li>
+                                <li><a href="#" class="subcategory-link">Lighting Tips</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="category-link">Sports Photography</a>
+                            <ul class="subcategory-list">
+                                <li><a href="#" class="subcategory-link">Outdoor Sports</a></li>
+                                <li><a href="#" class="subcategory-link">Indoor Sports</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="category-link">Headshot Backgrounds</a>
+                            <ul class="subcategory-list">
+                                <li><a href="#" class="subcategory-link">Studio Setup</a></li>
+                                <li><a href="#" class="subcategory-link">Natural Backgrounds</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="category-link">Equipment Reviews</a>
+                            <ul class="subcategory-list">
+                                <li><a href="#" class="subcategory-link">Cameras</a></li>
+                                <li><a href="#" class="subcategory-link">Lenses</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="category-link">Creative Inspiration</a>
+                            <ul class="subcategory-list">
+                                <li><a href="#" class="subcategory-link">Photography Projects</a></li>
+                                <li><a href="#" class="subcategory-link">Storytelling</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="col col-10 col-sm-10 col-md-9">
+                <section class="section section-blog-articles">
+                    <div class="row-wide">
+                        <div class="inner">
+                            <div class="grid-articles">
+                                <article class="grid-item article">
+                                    <div class="grid-item-inner">
+                                        <div class="article-image-wrapper">
+                                            <a href="blog_details.html"
+                                                class="article-image">
+                                                <img class="image lazy"
+                                                    title="How to Choose the Best Backgrounds for Headshots"
+                                                    src="torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                                    alt="How to Choose the Best Backgrounds for Headshots">
+                                            </a>
+                                        </div>
+                                        <div class="article-meta-wrapper">
+                                            <h3>
+                                                <a href="blog_details.html">How
+                                                    to Choose
+                                                    the Best Backgrounds for Headshots</a>
+                                            </h3>
+                                            <p class="article-excerpt">
+                                                A background makes a huge difference.
+                                            </p>
+                                            <div class="article-meta">
+                                                <span class="article-readtime">9 min read</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-date">Sep 29, 24</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-author">By Alexandra Sheehan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="grid-item article">
+                                    <div class="grid-item-inner">
+                                        <div class="article-image-wrapper">
+                                            <a href="blog_details.html"
+                                                class="article-image">
+                                                <img class="image lazy"
+                                                    title="How to Choose the Best Backgrounds for Headshots"
+                                                    src="torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                                    alt="How to Choose the Best Backgrounds for Headshots">
+                                            </a>
+                                        </div>
+                                        <div class="article-meta-wrapper">
+                                            <h3>
+                                                <a href="blog_details.html">How
+                                                    to Choose
+                                                    the Best Backgrounds for Headshots</a>
+                                            </h3>
+                                            <p class="article-excerpt">
+                                                A background makes a huge difference.
+                                            </p>
+                                            <div class="article-meta">
+                                                <span class="article-readtime">9 min read</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-date">Sep 29, 24</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-author">By Alexandra Sheehan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="grid-item article">
+                                    <div class="grid-item-inner">
+                                        <div class="article-image-wrapper">
+                                            <a href="blog_details.html"
+                                                class="article-image">
+                                                <img class="image lazy"
+                                                    title="How to Choose the Best Backgrounds for Headshots"
+                                                    src="torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                                    alt="How to Choose the Best Backgrounds for Headshots">
+                                            </a>
+                                        </div>
+                                        <div class="article-meta-wrapper">
+                                            <h3>
+                                                <a href="blog_details.html">How
+                                                    to Choose
+                                                    the Best Backgrounds for Headshots</a>
+                                            </h3>
+                                            <p class="article-excerpt">
+                                                A background makes a huge difference.
+                                            </p>
+                                            <div class="article-meta">
+                                                <span class="article-readtime">9 min read</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-date">Sep 29, 24</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-author">By Alexandra Sheehan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="grid-item article">
+                                    <div class="grid-item-inner">
+                                        <div class="article-image-wrapper">
+                                            <a href="blog_details.html"
+                                                class="article-image">
+                                                <img class="image lazy"
+                                                    title="How to Choose the Best Backgrounds for Headshots"
+                                                    src="torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                                    alt="How to Choose the Best Backgrounds for Headshots">
+                                            </a>
+                                        </div>
+                                        <div class="article-meta-wrapper">
+                                            <h3>
+                                                <a href="blog_details.html">How
+                                                    to Choose
+                                                    the Best Backgrounds for Headshots</a>
+                                            </h3>
+                                            <p class="article-excerpt">
+                                                A background makes a huge difference.
+                                            </p>
+                                            <div class="article-meta">
+                                                <span class="article-readtime">9 min read</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-date">Sep 29, 24</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-author">By Alexandra Sheehan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="grid-item article">
+                                    <div class="grid-item-inner">
+                                        <div class="article-image-wrapper">
+                                            <a href="blog_details.html"
+                                                class="article-image">
+                                                <img class="image lazy"
+                                                    title="Sports Photography Equipment: A List of the Gear You Need in 2024"
+                                                    src="torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                                    alt="Sports Photography Equipment: A List of the Gear You Need in 2024">
+                                            </a>
+                                        </div>
+                                        <div class="article-meta-wrapper">
+                                            <h3>
+                                                <a
+                                                    href="blog_details.html">Sports
+                                                    Photography Equipment: A List of the Gear You Need in 2024</a>
+                                            </h3>
+                                            <p class="article-excerpt">
+                                                Get ready to shoot some action. What will you pack in your bag?
+                                            </p>
+                                            <div class="article-meta">
+                                                <span class="article-readtime">9 min read</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-date">Sep 22, 24</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-author">By Anete Lusina</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="grid-item article">
+                                    <div class="grid-item-inner">
+                                        <div class="article-image-wrapper">
+                                            <a href="blog_details.html"
+                                                class="article-image">
+                                                <img class="image lazy"
+                                                    title="What Is Sports Photography? Cost, Types, and Examples (2024)"
+                                                    src="torii-gate-alone-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-84@2@b.jpg"
+                                                    alt="What Is Sports Photography? Cost, Types, and Examples (2024)">
+                                            </a>
+                                        </div>
+                                        <div class="article-meta-wrapper">
+                                            <h3>
+                                                <a
+                                                    href="blog_details.html">What
+                                                    Is Sports Photography? Cost, Types, and Examples (2024)</a>
+                                            </h3>
+                                            <p class="article-excerpt">
+                                                Sports photos capture all the action.
+                                            </p>
+                                            <div class="article-meta">
+                                                <span class="article-readtime">6 min read</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-date">Sep 15, 24</span>
+                                                <span class="article-meta-separator">|</span>
+                                                <span class="article-author">By Alexandra Sheehan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer style="background-color: #2c3e50; color: #ecf0f1; padding: 40px 20px; font-family: Arial, sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+            <!-- About Section -->
+            <div style="flex: 1 1 300px; margin-bottom: 20px; padding-right: 20px;">
+                <h3 class="text-white">About Us</h3>
+                <p>
+                    [Website Name] is your trusted source for the latest political news, analysis, and opinions.
+                    We are committed to delivering unbiased reporting and fostering informed discussions.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="flex: 1 1 200px; margin-bottom: 20px;">
+                <h3 class="text-white">Quick Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="/about" style="color: #ecf0f1; text-decoration: none;">About</a></li>
+                    <li><a href="/contact" style="color: #ecf0f1; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="/privacy" style="color: #ecf0f1; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="/terms" style="color: #ecf0f1; text-decoration: none;">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div style="flex: 1 1 300px; margin-bottom: 20px;">
+                <h3 class="text-white">Stay Informed</h3>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email"
+                        style="padding: 10px; width: 80%; max-width: 250px; margin-bottom: 10px; border: none; border-radius: 4px;">
+                    <button type="submit"
+                        style="padding: 10px 20px; background-color: #3498db; color: #ecf0f1; border: none; border-radius: 4px; cursor: pointer;">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+
+            <!-- Social Media Links -->
+            <div style="flex: 1 1 200px; margin-bottom: 20px;">
+                <h3 class="text-white">Follow Us</h3>
+                <div style="display: flex; gap: 10px;">
+                    <a href="https://facebook.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Facebook</a>
+                    <a href="https://twitter.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Twitter</a>
+                    <a href="https://instagram.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Instagram</a>
+                    <a href="https://youtube.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div style="text-align: center; margin-top: 20px; border-top: 1px solid #34495e; padding-top: 20px;">
+            <p>&copy; 2024 [Website Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gridItems = document.querySelectorAll(".grid-item");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("animate");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.3,
+                }
+            );
+
+            gridItems.forEach((item) => observer.observe(item));
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

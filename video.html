@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <img id="displayImage" alt="Video Image">
+
+    <script>
+        // Get the `src` query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const imgSrc = urlParams.get('src');
+
+        // Set the image source dynamically
+        const imgElement = document.getElementById('displayImage');
+        if (imgSrc) {
+            imgElement.src = imgSrc;
+        } else {
+            document.body.innerHTML = '<h1>No image specified</h1>';
+        }
+    </script>
+</body>
+</html>

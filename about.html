@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Blog Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General Reset */
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about {
+    background-color: rgb(247, 247, 247);
+    padding-top: 5%;
+}
+
+.about p {
+    font-size: 16px;
+}
+
+.vision{
+    margin-top: 10%;
+}
+
+.vision h2, .mission h2 {
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.vision img, .mission img {
+    width: 100%;
+}
+
+.vision p, .mission p {
+    line-height: 30px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.mission{
+    margin-top: 5%;
+}
+
+.Message{
+    margin-top: 10%;
+}
+
+.Message h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.Message p {
+    font-size: 13px
+}
+@media screen and (max-width:767px) {
+    .vision img, .mission img {
+        padding: 20px;
+    }
+    
+    .about p {
+        padding: 20px;
+    }
+}
+
+/* Scroll-triggered animation styles */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    </style>
+</head>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Something</a>
+        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<style>
+    .navbar {
+        background-color: #ffffff;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        margin: 0 10px;
+    }
+
+    .navbar .navbar-nav .nav-link:hover {
+        color: #ffc107;
+    }
+</style>
+
+<body>
+    <!-- About Us -->
+    <section class="about">
+        <div class="container">
+            <h2 class="text-center">About Us</h2>
+            <p>Jamuna Electronics and Automobiles Ltd is a sister concern of Jamuna Group which was established by the
+                Honorable Chairman Mr. Md.Nurul Islam in 1974. Jamuna Group has 25 different concerns including Real
+                Estate, Leather, Textiles,Tyre Manufacturing Industry for Commercial Vehicles, Press and Electronic
+                Media, Shopping Mall, Retail Business etc. It is one of the largest business conglomerates in
+                Bangladesh. It is exporting products in different countries in the world. <br> <br> <br>Jamuna
+                Electronics and Automobiles Ltd is one of the largest manufacturer and retailer of Electronics products
+                such as Refrigerator, Freezer, Television, Air Conditioner, Small Appliances, and Motor Cycles. It was
+                established in 2014 with large factory area of 100 Acores land. Use of Modern Machineries, Superb
+                Technology, Skilled Manpower, Reliable source of Raw Materials and Continuous R&D produce high quality
+                products. Jamuna Electronics is known for its quality and durability. <br> <br> <br> Jamuna Electronics
+                has three different channels for sales Plaza/Retail channel, Dealer operations,Corporate Channel and
+                Online/eCommerce (www.estorejamuna.com). There are more than 100 Plaza outlets and 400 plus dealer
+                outlets around the Country. In addition, we have our own corporate sales channels for B2B business.
+                Currently eCommerce or Online business is dominating the world and Jamuna Electronics is also expanding
+                their business through e-commerce. <br> <br>There are 2000 peoples are related with Jamuna Electronics
+                directly or indirectly. Factory is run by a bunch of skilled Engineers, Technicians and workers,some
+                also have training from abroad especially Engineers. Jamuna Electronics R&D department is consisting of
+                qualified skilled Engineers who build a world class lab including small separate production line. We
+                have extended sales and marketing team, those are moving around the country to promote Jamuna products
+                ,Jamuna Electronics has introduced the country with high quality products. Our service team members are
+                scattered all over the country to provide instant quality service to our valued customers. This is a
+                well corporate cultured organization and HR department is working to build a good team by providing
+                training's, conduct team building sessions, motivational sessions and good payroll including Fringe
+                benefits.</p>
+
+            <!-- Our Vision -->
+            <div class="vision row">
+                <div class="col col-12 col-sm-12 col-md-6">
+                    <h2>Our Vision</h2>
+                    <p>We, Jamuna Electronics & Automobiles Ltd view business as a means to the material and social well
+                        being of the investors, employees, users and many others at large leading to accretion of wealth
+                        through financial and moral gains as a part of the process of development of civilization.</p>
+                </div>
+                <div class="col col-12 col-sm-12 col-md-6">
+                    <img src="./about4.jpg" alt="">
+                </div>
+            </div>
+
+            <!-- Our Mission -->
+            <div class="mission row">
+                <div class="col col-12 col-sm-12 col-md-6">
+                    <img src="./about3.jpg" alt="">
+                </div>
+                <div class="col col-12 col-sm-12 col-md-6">
+                    <h2>Our Mission</h2>
+                    <p>We, Jamuna Electronics & Automobiles Ltd view business as a means to the material and social well
+                        being of the investors, employees, users and many others at large leading to accretion of wealth
+                        through financial and moral gains as a part of the process of development of civilization.</p>
+                </div>
+
+            </div>
+
+            <!-- Message from Chairman  -->
+            <div class="Message">
+                <h2>Message from Chairman </h2>
+                <p>It is forecasted by IMF and World Bank that Bangladesh will be the emerging economic power in Asia,
+                    especially South Asia and our economic activities are increasing day by day. Use of machineries in
+                    agriculture sectors, establishing of economic zones, huge heavy, medium and small (SME)
+                    industrialization indicates our economy is booming. In this economic changing arena, people are
+                    becoming busier and they don't have time so they need different equipment or appliances which make
+                    their life comfortable and easy. Jamuna Electronics is the largest Home appliances production house
+                    in the country. We are producing Refrigerator, Freezer, Television, Air Conditioner, Small
+                    appliances, Motor Cycles etc. <br> <br>
+
+                    Our main target is to make peoples life comfortable and hasslefree by providing high quality home
+                    appliances, faster customer service, innovative products, colorful life style etc. We have
+                    introduced Glass door mirror finished refrigerator for the first time in Bangladesh. In addition, we
+                    are providing 4 years panel replacement warranty for Jamuna LED as well as inverter Air Conditioner
+                    to save electricity. <br> <br>
+
+                    In this current world phenomena, technologies having huge impact on production and we are using
+                    latest technology for producing electronics products. Technology is our key strength but our skilled
+                    work force made it possible because machines are run by men. It is our pride to announce that
+                    JamunaElectronic's employees are highly satisfied and hence they are contributing their best. <br>
+                    Our desire is to full fill country's demand and enhance export around the world. Currently, we are
+                    exporting few countries in Asia and Africa but we will move soon to Europe, America, and Latin
+                    America. We believe in our strength, quality, and service so we can serve the nation for a prolonged
+                    period.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer style="background-color: #2c3e50; color: #ecf0f1; padding: 40px 20px; font-family: Arial, sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+            <!-- About Section -->
+            <div style="flex: 1 1 300px; margin-bottom: 20px; padding-right: 20px;">
+                <h3 class="text-white">About Us</h3>
+                <p>
+                    [Website Name] is your trusted source for the latest political news, analysis, and opinions.
+                    We are committed to delivering unbiased reporting and fostering informed discussions.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="flex: 1 1 200px; margin-bottom: 20px;">
+                <h3 class="text-white">Quick Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="/about" style="color: #ecf0f1; text-decoration: none;">About</a></li>
+                    <li><a href="/contact" style="color: #ecf0f1; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="/privacy" style="color: #ecf0f1; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="/terms" style="color: #ecf0f1; text-decoration: none;">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div style="flex: 1 1 300px; margin-bottom: 20px;">
+                <h3 class="text-white">Stay Informed</h3>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email"
+                        style="padding: 10px; width: 80%; max-width: 250px; margin-bottom: 10px; border: none; border-radius: 4px;">
+                    <button type="submit"
+                        style="padding: 10px 20px; background-color: #3498db; color: #ecf0f1; border: none; border-radius: 4px; cursor: pointer;">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+
+            <!-- Social Media Links -->
+            <div style="flex: 1 1 200px; margin-bottom: 20px;">
+                <h3 class="text-white">Follow Us</h3>
+                <div style="display: flex; gap: 10px;">
+                    <a href="https://facebook.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Facebook</a>
+                    <a href="https://twitter.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Twitter</a>
+                    <a href="https://instagram.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">Instagram</a>
+                    <a href="https://youtube.com" target="_blank"
+                        style="color: #ecf0f1; text-decoration: none;">YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div style="text-align: center; margin-top: 20px; border-top: 1px solid #34495e; padding-top: 20px;">
+            <p>&copy; 2024 [Website Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+    
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("animate");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2, // 20% দৃশ্যমান হলেই trigger হবে
+                }
+            );
+    
+            sections.forEach((section) => observer.observe(section));
+        });
+    </script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
